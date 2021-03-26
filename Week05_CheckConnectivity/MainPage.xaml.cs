@@ -30,6 +30,16 @@ namespace Week05_CheckConnectivity
             Device.BeginInvokeOnMainThread(() =>
             {
                 networkState.Text = e.NetworkAccess.ToString();
+
+                if (e.ConnectionProfiles.Contains(ConnectionProfile.WiFi))
+                {                    
+                    networkState.Text = "Wifi ile bağlısınız.";
+                }
+                if (e.ConnectionProfiles.Contains(ConnectionProfile.Cellular))
+                {
+                    networkState.Text = "Mobil veri kullanımı ile bağlısınız.";
+                }
+
             });
         }
     }
